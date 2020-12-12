@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "jpa"
+		},
+		{
+			"path": "jdbc"
+		}
+	],
+	"settings": {}
+}

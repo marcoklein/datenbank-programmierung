@@ -1,0 +1,2 @@
+# Exclude properties as this file contains our db password
+*.properties
