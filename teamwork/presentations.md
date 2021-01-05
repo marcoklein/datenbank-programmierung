@@ -24,9 +24,9 @@ Finden Sie sich in 3 - 4er Gruppen zusammen und wählen Sie eines der folgenden 
 ## Inhalt
 
 Die Präsentation soll einen Einblick in das von Ihnen ausgewählte System geben.
-Diese soll sowohl eine wirtschaftliche, als auch eine technische Evaluierung enthalten.
+Diese soll eine wirtschaftliche, sowie eine technische Evaluierung enthalten.
 Beschreiben Sie die Rahmendaten (Gründung, Lizenz, ...) und die Nutzungsgebiete (Use Cases, Haupteinsatzgebiete).
-Geben Sie außerdem programmatische Beispiele für die Verwendung Ihres Datenbanksystems (Datenerstellung, Schemaerstellung?).
+Geben Sie außerdem programmatische Beispiele für die Verwendung Ihres Datenbanksystems (Sprache, Datenerstellung, Schemaerstellung?).
 
 Unterstützen Sie Ihre Ausarbeitung mit Programmcode und ggf. Live-Beispielen.
 
