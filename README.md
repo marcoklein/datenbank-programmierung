@@ -1,4 +1,4 @@
-# Database Programming
+# Practical Database Engineering
 
 Subsidiary code repository for the lecture.
 
