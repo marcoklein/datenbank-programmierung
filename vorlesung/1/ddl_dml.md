@@ -1,3 +1,4 @@
+- [Grundlegende Begrifflichkeiten](#grundlegende-begrifflichkeiten)
 - [Data Definition Language (DDL)](#data-definition-language-ddl)
   - [Schema erstellen](#schema-erstellen)
   - [Tabelle erstellen](#tabelle-erstellen)
@@ -5,15 +6,35 @@
   - [Auto Increment](#auto-increment)
   - [Löschen und Ändern von Schemas und Tabellen](#löschen-und-ändern-von-schemas-und-tabellen)
   - [Generelle Verwendung](#generelle-verwendung)
-- [Integritätsbedingungen](#integritätsbedingungen)
-  - [NOT NULL Constraint](#not-null-constraint)
-  - [UNIQUE Constraint](#unique-constraint)
-  - [CHECK-Constraint](#check-constraint)
-  - [Referentielle Integrität](#referentielle-integrität)
-    - [Alternativsyntax](#alternativsyntax)
-    - [Verhalten von REFERENCES](#verhalten-von-references)
+  - [Integritätsbedingungen](#integritätsbedingungen)
+    - [NOT NULL Constraint](#not-null-constraint)
+    - [UNIQUE Constraint](#unique-constraint)
+    - [CHECK-Constraint](#check-constraint)
+    - [Referentielle Integrität](#referentielle-integrität)
+      - [Alternativsyntax](#alternativsyntax)
+      - [Verhalten von REFERENCES](#verhalten-von-references)
+- [Grundlegende Data Modification Language (DML)](#grundlegende-data-modification-language-dml)
+  - [Daten einfügen](#daten-einfügen)
+  - [Daten löschen](#daten-löschen)
+  - [Alle Daten abfragen](#alle-daten-abfragen)
 - [Skripte](#skripte)
   - [Erstellung der Mitarbeiter-Projekt Beziehung](#erstellung-der-mitarbeiter-projekt-beziehung)
+  - [Datenmodifikation](#datenmodifikation)
+
+# Grundlegende Begrifflichkeiten
+
+- **Datenbank** (DB)
+- **Datenbankmanagementsystem** (DBMS)
+  z.B. Oracle, SQL Server, DB2, MySQL, PostgreSQL und MariaDB
+- **SQL** (Structured Query Language) als Datenbanksprache
+  - SQL definiert wichtigste Befehle
+  - Wird von allen großen DBMS unterstützt
+  - Von Organisationen ANSI und ISO standardisiert
+  - Da SQL historisch gewachsen haben viele Hersteller SQL Befehle auf ihre Produkte angepasst (bspw. Oracle oder PostgreSQL)
+- **Befehlskategorien**
+  - DDL (Data Definition Language) <!-- - Anlegen einer Datenbankstruktur-->
+  - DML (Data Manipulation Language) <!-- - Abfragen, Einfügen, Ändern und Löschen von Daten-->
+  - DCL (Data Control Language) <!-- - Rechteverwaltung -->
 
 # Data Definition Language (DDL)
 
@@ -179,7 +200,7 @@ Referenz: https://www.postgresql.org/docs/13/ddl-alter.html
 - `ALTER`, um die DB Definition zu Ändern
 - `DROP`, um DB Definitionen zu löschen
 
-# Integritätsbedingungen
+## Integritätsbedingungen
 
 - Qualitätssicherung der Daten
 - Mit Integritätsbedingungen stellt DB sicher, dass diese beim Einfügen, Ändern oder Löschen eingehalten werden
@@ -191,7 +212,7 @@ Referenz: https://www.postgresql.org/docs/13/ddl-alter.html
 
 Referenz: https://www.postgresql.org/docs/13/ddl-constraints.html
 
-## NOT NULL Constraint
+### NOT NULL Constraint
 
 - Bei Nutzung von NOT NULL darf Spalte nicht leer sein
 - Mit DEFAULT kann beim Leerlassen ein Standardwert gesetzt werden
@@ -210,7 +231,7 @@ DEFAULT ‘noemail@sth.de’,
 
 `emp_email` muss immer gesetzt werden und bekommt ansonsten den Standardwert `noemail@sth.de`.
 
-## UNIQUE Constraint
+### UNIQUE Constraint
 
 - Werte einer Spalte muss eindeutig sein
 
@@ -248,7 +269,7 @@ Mehrere Felder lassen sich mit `UNIQUE` verbinden:
 CONSTRAINT name_unique UNIQUE (first_name, last_name)
 ```
 
-## CHECK-Constraint
+### CHECK-Constraint
 
 Zusätzliche Regeln, welche ein Spalteneintrag erfüllen muss
 
@@ -256,9 +277,9 @@ Beispiel
 
 ```sql
 CREATE TABLE emp_employees (
-    emp_id    INTEGER,
-    emp_email    VARCHAR(50) UNIQUE,
-    emp_age    INTEGER CHECK (emp_age >= 12)
+    emp_id      INTEGER,
+    emp_email   VARCHAR(50) UNIQUE,
+    emp_age     INTEGER CHECK (emp_age >= 12)
     PRIMARY KEY (emp_id)
 );
 ```
@@ -281,7 +302,7 @@ CREATE TABLE emp_employees (
 
 > Constraint kann über den Namen `altercheck` referenziert werden
 
-## Referentielle Integrität
+### Referentielle Integrität
 
 - Abbildung von Beziehungen
 - Überprüfung ob Referenzen zu anderen Tabellen eingehalten werden
@@ -316,7 +337,7 @@ CREATE TABLE emp_employee (
 - Ein Mitarbeiter **kann** **ein** Projekt haben
 - Durch `NOT NULL` kann eine Referenz erzwungen werden (bspw. Foreign Key muss definiert werden)
 
-### Alternativsyntax
+#### Alternativsyntax
 
 `REFERENCES` kann direkt hinter dem Datentyp verwendet werden.
 
@@ -328,14 +349,14 @@ CREATE TABLE emp_employee(
 );
 ```
 
-### Verhalten von REFERENCES
+#### Verhalten von REFERENCES
 
 Standardverhalten:
 Ein Projekt, welches durch Mitarbeiter referenziert wird kann nicht gelöscht werden!
 
 Das Verhalten kann durch die Optionen `ON DELETE` oder `ON UPDATE` gesetzt werden.
 
-Beispiel
+Beispiel mit `ON DELETE`
 
 ```sql
 CREATE TABLE emp_employee(
@@ -352,6 +373,93 @@ Verhalten:
 - `SET NULL`: Wird ein Projekt gelöscht, wird `emp_pro_id` des Mitarbeiters auf `NULL` gesetzt
 - `SET DEFAULT`: Wird ein Projekt gelöscht, wird die `emp_pro_id` auf einen Standardwert gesetzt
 
+# Grundlegende Data Modification Language (DML)
+
+Um Schemas zu testen wollen wir sie mit einfachen Daten befüllen. Dafür sind grundlegende Begrifflichkeiten nötig.
+Komplexere Abfragen behandeln wir in einem separaten Block.
+
+## Daten einfügen
+
+Datensätze werden mit INSERT eingefügt
+Syntax
+
+```sql
+INSERT INTO <Tabellenname> ( <Spaltennamen> )
+VALUES ( <Werte> )
+```
+
+Die Werte sind in der gleichen Reihenfolge wie die Spaltennamen
+Auto-Increment Werte werden erhöht
+Fehler falls Primärschlüssel bereits existiert
+
+Beispiel
+
+```sql
+INSERT INTO employee (id, email, first_name, last_name)
+VALUES (1, ‘worker@comp.de’, ‘Max’, ‘Muster’);
+```
+
+Daten ändern
+
+Datensätze werden mit UPDATE geändert
+Syntax
+
+```sql
+UPDATE <Tabellenname>
+SET <Spaltenname>=<Neuer Wert>, ...
+[WHERE <Auswahlbedingung>]
+```
+
+Bezieht sich immer nur auf eine Tabelle
+Mit WHERE können zu ändernde Daten gefiltert werden
+Auswahlbedingungen können mit AND oder OR verknüpft werden
+
+Beispiel
+
+```sql
+UPDATE employee
+SET last_name = ‘Mustermann’, first_name = ‘Maxi’
+WHERE email = ‘worker@comp.de’
+AND last_name=’Muster’;
+```
+
+## Daten löschen
+
+Datensätze werden mit DELETE geändert
+Syntax
+
+```sql
+DELETE FROM <Tabellenname>
+[WHERE <Auswahlbedingung>]
+```
+
+Wird keine Auswahlbedingung definiert, werden alle Daten der Tabelle gelöscht
+
+Beispiel
+
+```sql
+DELETE FROM employee
+WHERE email = ‘worker@comp.de’;
+```
+
+## Alle Daten abfragen
+
+Datensätze werden mit SELECT abgefragt
+
+Syntax
+
+```sql
+SELECT * FROM <Tabellenname>;
+```
+
+> Frägt alle Daten aus der Tabelle employee ab
+
+Beispiel
+
+```sql
+SELECT * FROM employee;
+```
+
 # Skripte
 
 ## Erstellung der Mitarbeiter-Projekt Beziehung
@@ -360,7 +468,6 @@ Verhalten:
 -- IF EXISTS fuehrt das Kommando nur aus, wenn die TABELLE existiert
 DROP TABLE IF EXISTS emp_employee;
 DROP TABLE IF EXISTS pro_project;
-
 CREATE TABLE pro_project (
 	pro_id	    SERIAL,
     pro_name    VARCHAR(255),
@@ -370,12 +477,31 @@ CREATE TABLE pro_project (
 
 CREATE TABLE emp_employee (
     emp_id           SERIAL,
-    emp_pro_id       INTEGER
-    emp_email        VARCHAR(50),
+    emp_pro_id       INTEGER,
+    -- email muss definiert werden und ist eindeutig
+    emp_email        VARCHAR(50) NOT NULL UNIQUE,
     emp_first_name   VARCHAR(50),
     emp_last_name    VARCHAR(50),
 
     PRIMARY KEY (emp_id),
-	FOREIGN KEY (pro_emp_id) REFERENCES emp_employee (emp_id)
+	FOREIGN KEY (emp_pro_id) REFERENCES pro_project(pro_id)
 );
+```
+
+## Datenmodifikation
+
+```sql
+-- Erstellen
+INSERT INTO emp_employee (emp_email, emp_first_name, emp_last_name) VALUES ('nina@email.de', 'Nina', 'Haus');
+
+-- Loeschen
+DELETE FROM emp_employee WHERE emp_email = 'nina@email.de';
+
+-- Keine Email nicht moeglich
+INSERT INTO emp_employee (emp_first_name, emp_last_name) VALUES ('Nina', 'Haus');
+
+-- Aktualisieren
+UPDATE emp_employee
+SET emp_last_name = 'Wohnung'
+WHERE emp_email = 'nina@email.de';
 ```
