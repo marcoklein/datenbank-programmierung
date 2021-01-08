@@ -13,7 +13,8 @@
     - [Referentielle Integrität](#referentielle-integrität)
       - [Alternativsyntax](#alternativsyntax)
       - [Verhalten von REFERENCES](#verhalten-von-references)
-- [Grundlegende Data Modification Language (DML)](#grundlegende-data-modification-language-dml)
+      - [Zusammengesetzte Schlüssel](#zusammengesetzte-schlüssel)
+- [Data Modification Language (DML)](#data-modification-language-dml)
   - [Daten einfügen](#daten-einfügen)
   - [Daten löschen](#daten-löschen)
   - [Alle Daten abfragen](#alle-daten-abfragen)
@@ -33,7 +34,9 @@
   - Da SQL historisch gewachsen haben viele Hersteller SQL Befehle auf ihre Produkte angepasst (bspw. Oracle oder PostgreSQL)
 - **Befehlskategorien**
   - DDL (Data Definition Language) <!-- - Anlegen einer Datenbankstruktur-->
-  - DML (Data Manipulation Language) <!-- - Abfragen, Einfügen, Ändern und Löschen von Daten-->
+  - DML (Data Manipulation Language) <!-- - Einfügen, Ändern und Löschen von Daten-->
+  - DQL (Data Query Language) <!-- Abfragen -->
+  - TCL (Transaction Control Language) <!-- - Transaktionen -->
   - DCL (Data Control Language) <!-- - Rechteverwaltung -->
 
 # Data Definition Language (DDL)
@@ -373,10 +376,27 @@ Verhalten:
 - `SET NULL`: Wird ein Projekt gelöscht, wird `emp_pro_id` des Mitarbeiters auf `NULL` gesetzt
 - `SET DEFAULT`: Wird ein Projekt gelöscht, wird die `emp_pro_id` auf einen Standardwert gesetzt
 
-# Grundlegende Data Modification Language (DML)
+#### Zusammengesetzte Schlüssel
 
-Um Schemas zu testen wollen wir sie mit einfachen Daten befüllen. Dafür sind grundlegende Begrifflichkeiten nötig.
-Komplexere Abfragen behandeln wir in einem separaten Block.
+Engl: Composite Keys  
+Mehrere Spalten werden zu einem Schlüssel kombiniert
+
+Beispiel
+
+```sql
+CREATE TABLE emp_employee (
+    emp_first_name  VARCHAR(50) NOT NULL,
+    emp_last_name   VARCHAR(50) NOT NULL,
+
+    PRIMARY KEY (emp_first_name, emp_last_name),
+);
+```
+
+> Mitarbeiter werden über einen eindeutigen Schlüssel aus Vor- und Nachname referenziert.
+
+# Data Modification Language (DML)
+
+DML modifiziert Datensätze.
 
 ## Daten einfügen
 
@@ -444,7 +464,9 @@ WHERE email = ‘worker@comp.de’;
 
 ## Alle Daten abfragen
 
-Datensätze werden mit SELECT abgefragt
+Datensätze werden mit SELECT abgefragt. Komplexe Abfragen behandeln wir in der nächsten Vorlesung.
+
+SELECT ist ein Teil der Data Query Language (DQL).
 
 Syntax
 
