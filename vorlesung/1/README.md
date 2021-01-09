@@ -53,7 +53,7 @@ von Marco Klein (marco.klein@lehre.dhbw-stuttgart.de)
 
 ## DB Präsentationen
 
-[Beschreibung der Gruppenarbeiten](https://github.com/marcoklein/dbprogrammierung2021/blob/master/teamwork/presentations.md)
+[Beschreibung der Gruppenarbeiten](../presentations.md)
 
 Bilden Sie 3 - 4er Gruppen zu den verschiedenen Themen.
 
