@@ -491,7 +491,7 @@ SELECT * FROM employee;
 DROP TABLE IF EXISTS emp_employee;
 DROP TABLE IF EXISTS pro_project;
 CREATE TABLE pro_project (
-	pro_id	    SERIAL,
+    pro_id	    SERIAL,
     pro_name    VARCHAR(255),
 
     PRIMARY KEY (pro_id)
