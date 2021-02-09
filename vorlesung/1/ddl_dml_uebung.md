@@ -3,7 +3,7 @@
 Legen Sie für die Übungen ein neues Schema in Ihrer lokalen Datenbank an,
 damit halten Sie Ihre Datenbank übersichtlich.
 
-Übung 0 ist die Grundlage aller weiteren Übungen. Beginnen Sie immer mit dieser Übung.
+Übung 0 ist die Grundlage aller weiteren Übungen. Beginnen Sie mit dieser Übung.
 
 ## 0. Mitarbeiterdaten
 
@@ -17,7 +17,15 @@ Diese soll die folgenden Spalten enthalten:
 - Lieblingsfarbe
 - Lieblingstier
 
-Fügen Sie drei Mitarbeiterdatensätze hinzu. Dies sind Ihre Testdaten.
+### 0.1 Testdaten
+
+Fügen Sie drei Mitarbeiterdatensätze hinzu. Dies sind Ihre Testdaten. Verwenden Sie unterschiedliche Werte für die Lieblingszahl.
+
+### 0.2 Datenaktualisierung
+
+1. Aktualisieren Sie die drei Datensätze und ändern Sie mit dem `UPDATE` Befehl alle Lieblingszahlen auf 3.
+2. Verwenden Sie den `UPDATE` Befehl, um einen bestimmen Datensatz zu aktualisieren. Welche Felder Sie ändern ist Ihnen freigestellt.
+3. Löschen Sie einen Datensatz.
 
 ## 1. Standortverwaltung
 

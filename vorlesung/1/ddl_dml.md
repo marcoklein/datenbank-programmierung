@@ -227,7 +227,7 @@ Beispiel NOT NULL und DEFAULT
 CREATE TABLE emp_employees (
     emp_id    INTEGER,
     emp_email    VARCHAR(50) NOT NULL
-DEFAULT ‘noemail@sth.de’,
+DEFAULT 'noemail@sth.de',
     PRIMARY KEY (emp_id)
 );
 ```
@@ -416,7 +416,7 @@ Beispiel
 
 ```sql
 INSERT INTO employee (id, email, first_name, last_name)
-VALUES (1, ‘worker@comp.de’, ‘Max’, ‘Muster’);
+VALUES (1, 'worker@comp.de', 'Max', 'Muster');
 ```
 
 Daten ändern
@@ -438,8 +438,8 @@ Beispiel
 
 ```sql
 UPDATE employee
-SET last_name = ‘Mustermann’, first_name = ‘Maxi’
-WHERE email = ‘worker@comp.de’
+SET last_name = 'Mustermann', first_name = 'Maxi'
+WHERE email = 'worker@comp.de'
 AND last_name=’Muster’;
 ```
 
@@ -459,7 +459,7 @@ Beispiel
 
 ```sql
 DELETE FROM employee
-WHERE email = ‘worker@comp.de’;
+WHERE email = 'worker@comp.de';
 ```
 
 ## Alle Daten abfragen
