@@ -1,3 +1,12 @@
+- [Übungen Datendefinition und Datenmanipulation](#übungen-datendefinition-und-datenmanipulation)
+  - [0. Mitarbeiterdaten](#0-mitarbeiterdaten)
+    - [0.1 Testdaten](#01-testdaten)
+    - [0.2 Datenaktualisierung](#02-datenaktualisierung)
+  - [1. Standortverwaltung](#1-standortverwaltung)
+  - [2. Fähigkeiten](#2-fähigkeiten)
+  - [3. Integritätsbedingungen](#3-integritätsbedingungen)
+  - [4. Migration](#4-migration)
+
 # Übungen Datendefinition und Datenmanipulation
 
 Legen Sie für die Übungen ein neues Schema in Ihrer lokalen Datenbank an,
