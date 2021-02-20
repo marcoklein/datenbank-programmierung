@@ -18,6 +18,8 @@
   - [Daten einfügen](#daten-einfügen)
   - [Daten löschen](#daten-löschen)
   - [Alle Daten abfragen](#alle-daten-abfragen)
+- [Sonstiges](#sonstiges)
+  - [Kommentare](#kommentare)
 - [Skripte](#skripte)
   - [Erstellung der Mitarbeiter-Projekt Beziehung](#erstellung-der-mitarbeiter-projekt-beziehung)
   - [Datenmodifikation](#datenmodifikation)
@@ -61,6 +63,8 @@ Beispiel
 ```sql
 CREATE SCHEMA employees;
 ```
+
+> Verwenden Sie ein Schema mit `SET SCHEMA 'employees'`.
 
 Referenz: https://www.postgresql.org/docs/13/sql-createschema.html
 
@@ -139,7 +143,7 @@ Syntax PostgreSQL
 
 ```sql
 CREATE TABLE <Tabellenname> (
-    id    INTEGER SERIAL,
+    id    SERIAL,
     ...
     PRIMARY KEY id
 );
@@ -348,7 +352,7 @@ CREATE TABLE emp_employee (
 CREATE TABLE emp_employee(
     ...
     emp_pro_id INTEGER REFERENCES pro_project (pro_id),
-...
+    ...
 );
 ```
 
@@ -388,7 +392,7 @@ CREATE TABLE emp_employee (
     emp_first_name  VARCHAR(50) NOT NULL,
     emp_last_name   VARCHAR(50) NOT NULL,
 
-    PRIMARY KEY (emp_first_name, emp_last_name),
+    PRIMARY KEY (emp_first_name, emp_last_name)
 );
 ```
 
@@ -480,6 +484,17 @@ Beispiel
 
 ```sql
 SELECT * FROM employee;
+```
+
+# Sonstiges
+
+## Kommentare
+
+Kommentare werden mit `--` beschrieben:
+
+```sql
+-- erstellt Tabelle
+CREATE TABLE bla (...)
 ```
 
 # Skripte
