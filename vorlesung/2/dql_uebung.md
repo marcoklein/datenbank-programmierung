@@ -40,7 +40,7 @@ Verbinden sie sich mit der Datenbank und machen Sie sich mit dem Aufbau des Date
 3. Sortieren Sie alle Titel in aufsteigender Reihenfolge (A bis Z)
 4. Geben Sie nur alle Tags, welche mit einem E beginnen aus
 5. Geben Sie die Anzahl aller Tags, welche mit einem E beginnen aus
-6. Geben Sie alle Namen in Großbuchstaben aus
+6. Geben Sie alle Namen der Tags in Großbuchstaben aus
 7. Limitieren Sie das Ergebnis auf zwei Einträge
 
 ## 1. Anzahl der Tags
