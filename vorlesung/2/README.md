@@ -500,7 +500,7 @@ INNER JOIN pro_project ON pro_id=emp_pro_id;
 ```sql
 SELECT * FROM emp_employee
 WHERE emp_pro_id = (
-  SELECT pro_id FROM pro_project WHERE name='tree_planting'
+  SELECT pro_id FROM pro_project WHERE pro_name='tree_planting'
 );
 ```
 
