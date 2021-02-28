@@ -38,9 +38,8 @@ public class App {
         System.out.printf("Creating schema with: %s%n", createSchemaSql);
         stmt.executeUpdate(createSchemaSql);
 
-        final String createTableSql = String.join(" ",
-            "CREATE TABLE IF NOT EXISTS favorite_number",
-            "(id SERIAL PRIMARY KEY, number INT4, reason VARCHAR(255))");
+        final String createTableSql = String.join(" ", "CREATE TABLE IF NOT EXISTS favorite_number",
+                "(id SERIAL PRIMARY KEY, number INT4, reason VARCHAR(255))");
         System.out.printf("Creating table with: %s%n", createTableSql);
         stmt.executeUpdate(createTableSql);
 
@@ -49,12 +48,12 @@ public class App {
 
     public static void insertData(Connection conn) throws SQLException {
         // you can also use conn.createStatement() in conjunction with executeQuery()
-        // however, this is prone to SQL injection as the normal statement doesnt sanetize query params
-        // therefore: always use a PreparedStatement if you have use input!
+        // however, this is prone to SQL injection as the normal statement doesnt
+        // sanetize query params
+        // therefore: always use a PreparedStatement if you have user input!
 
-        final PreparedStatement stmt = conn.prepareStatement(
-            "INSERT INTO favorite_number (number, reason) VALUES (?, ?)"
-        );
+        final PreparedStatement stmt = conn
+                .prepareStatement("INSERT INTO favorite_number (number, reason) VALUES (?, ?)");
 
         stmt.setInt(1, 1);
         stmt.setString(2, "One is cool.");
