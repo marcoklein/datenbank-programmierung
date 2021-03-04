@@ -10,7 +10,7 @@ Nutzen Sie dafür die Anweisungen der [README.md](README.md).
 
 - Füge eine SQL Anweisung hinzu, welche zufällige Nummern in die Datenbank hinzufügt
 - Zuerst soll diese durch Java Code produziert werden
-- Ändere den Code dann so ab, dass die Zahl durch SQL generiert wird
+- Dann soll die Beschreibung zufällig generiert werden
 
 ## 2. Integrationsbedingungen
 
