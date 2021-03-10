@@ -188,7 +188,7 @@ try {
 ```java
 Connection conn = DriverManager.getConnection(url, user, password);
 Statement stmt = conn.createStatement();
-String sqj = "SELECT COUNT(\*) AS rowcount FROM emp_employee";
+String sqj = "SELECT COUNT(*) AS rowcount FROM emp_employee";
 
 ResultSet rs = stmt.executeQuery(sql);
 

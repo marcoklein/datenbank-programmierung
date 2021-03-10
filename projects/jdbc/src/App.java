@@ -1,3 +1,4 @@
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -76,5 +77,24 @@ public class App {
         }
 
         stmt.close();
+    }
+
+    /**
+     * Example of a stored procedure for lecture 4.
+     * 
+     * @param conn
+     * @throws SQLException
+     */
+    public static void insertDataProcedure(Connection conn) throws SQLException {
+        String sql = "CALL insert_data(?,?)";
+        CallableStatement stmt = conn.prepareCall(sql);
+
+        stmt.setString(1, "brown");
+        stmt.setString(2, "project x");
+
+        stmt.executeUpdate();
+
+        stmt.close();
+        conn.close();
     }
 }
