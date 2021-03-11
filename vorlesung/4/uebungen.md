@@ -10,7 +10,7 @@ Verwenden Sie das folgende SQL-Skript um das Schema `company` zu erstellen.
 
 ```sql
 CREATE SCHEMA IF NOT EXISTS company;
-USE SCHEMA company;
+SET SCHEMA 'company';
 DROP TABLE IF EXISTS emp_employee;
 DROP TABLE IF EXISTS pro_project;
 DROP TABLE IF EXISTS fao_favorite_color;
