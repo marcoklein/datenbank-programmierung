@@ -1,3 +1,9 @@
+- [Übungen](#übungen)
+  - [1. Programmierung](#1-programmierung)
+  - [2. DBMS](#2-dbms)
+  - [3. Supermarkt](#3-supermarkt)
+  - [4. Performance](#4-performance)
+
 # Übungen
 
 ## 1. Programmierung
