@@ -9,3 +9,7 @@ Materialien der einzelnen Vorlesungen.
 [Vorlesung 3](3/README.md)
 
 [Vorlesung 4](4/README.md)
+
+[Vorlesung 5](5/README.md)
+
+[Vorlesung 6](6/README.md)

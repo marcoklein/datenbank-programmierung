@@ -202,7 +202,7 @@ Referenz: https://www.postgresql.org/docs/13/ddl-alter.html
 ## Generelle Verwendung
 
 - `CREATE` um Schemas und Tabellen anzulegen (Definition des Datenlayouts)
-- `NICHT` für das Einfügen konkreter Daten - hier werden andere Befehle genutzt
+- NICHT für das Einfügen konkreter Daten - hier werden andere Befehle genutzt
 - `CREATE` wird auch für sämtliche andere Objekte genutzt (zum Beispiel Anlegen von Benutzerrechten mit `CREATE USER`)
 - `ALTER`, um die DB Definition zu Ändern
 - `DROP`, um DB Definitionen zu löschen
@@ -230,8 +230,7 @@ Beispiel NOT NULL und DEFAULT
 ```sql
 CREATE TABLE emp_employees (
     emp_id    INTEGER,
-    emp_email    VARCHAR(50) NOT NULL
-DEFAULT 'noemail@sth.de',
+    emp_email    VARCHAR(50) NOT NULL DEFAULT 'noemail@sth.de',
     PRIMARY KEY (emp_id)
 );
 ```
@@ -262,7 +261,7 @@ CREATE TABLE emp_employees (
     emp_id      INTEGER,
     emp_email   VARCHAR(50),
     …
-    CONSTRAINT eindeutig_email UNIQUE (emp_email)
+    CONSTRAINT eindeutig_email UNIQUE (emp_email),
     ...
     PRIMARY KEY (emp_id)
 );

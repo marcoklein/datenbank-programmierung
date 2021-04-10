@@ -1,5 +1,7 @@
 ## Getting Started
 
+Run all commands through a command prompt/terminal in your jdbc folder.
+
 Compile from project folder
 
 ```sh
@@ -13,6 +15,7 @@ Run with
 ```sh
 java -cp "./build;./lib/postgresql-jdbc.jar" App dbpassword
 ```
+
 For Linux/Mac the `;` should be a `:`.
 
 - `-cp`: Folder of Java classfiles (classpath)

@@ -147,10 +147,10 @@ Neo4j, OrientDB
 - KEY und INDEX sind gleichbedeutend
 - PRIMARY KEY ist ein Index
 
-        - im Regelfall mit AUTO_INCREMENT befüllt
-        - immer einzigartig - jeder Eintrag wird eindeutig identifiziert
-        - niemals NULL
-        - nicht jede Tabelle benötigt einen primary key
+  - im Regelfall mit AUTO_INCREMENT befüllt
+  - immer einzigartig - jeder Eintrag wird eindeutig identifiziert
+  - niemals NULL
+  - nicht jede Tabelle benötigt einen primary key
 
 - `EXPLAIN <Abfrage>` für Analyse von SELECT Abfragen: sinnvolle Indizes koennen hiermit identifizieren werden
 
