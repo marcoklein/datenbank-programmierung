@@ -202,7 +202,10 @@ CREATE UNIQUE INDEX <Indexname> ON
 Vertikale Skalierung
 
 - Aufrüstung des DB-Servers
-- Für RDBMS möglich Horizontale Skalierung
+- Für RDBMS möglich
+
+Horizontale Skalierung
+
 - Aufteilung der Daten auf verschiedene Server (Nodes)
 - Lastenaufteilung
 - Oft nicht für RDBMS möglich, da ACID nicht eingehalten werden kann
