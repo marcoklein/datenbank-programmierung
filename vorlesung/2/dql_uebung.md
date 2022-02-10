@@ -1,5 +1,5 @@
 - [Übungen Datenabfrage](#übungen-datenabfrage)
-  - [Verbindung zur Datenbank](#verbindung-zur-datenbank)
+  - [Aufsetzen der Datenbank](#aufsetzen-der-datenbank)
   - [Datenmodell und Lizenz](#datenmodell-und-lizenz)
   - [0. Vorbereitung](#0-vorbereitung)
   - [1. Anzahl der Tags](#1-anzahl-der-tags)
@@ -9,12 +9,11 @@
 
 # Übungen Datenabfrage
 
-## Verbindung zur Datenbank
+## Aufsetzen der Datenbank
 
-Die folgenden Übungen werden auf einer externen Datenbank durchgeführt.
-Sie erhalten die Zugangsdaten in der Vorlesung.
+Für die folgenden Übungen müssen das Skript `improv-database.sql` in Ihre Datenbank importieren. Kopieren Sie dafür das Skript in ihre _DBeaver_ Applikation und führen Sie dieses aus.
 
-Erstellen Sie eine neue Verbindung in DBeaver wie beim Aufsetzen der Entwicklungsumgebung beschrieben ist.
+_Wichtig_: das Skript muss in dem _public_ Schema ausgeführt werden.
 
 ## Datenmodell und Lizenz
 
@@ -56,7 +55,7 @@ Die Daten werden mit einem Import-Job in die Datenbank kopiert.
 
 Ermitteln Sie die Dauer des Imports indem Sie die `createdAt` Felder der `part` Tabelle vergleichen.
 
-Tipp: MIN und MAX Befehle können auch auf Daten verwendet werden.
+Tipp: Verwenden Sie die `MIN` und `MAX` Befehle.
 
 ## 3. Joins
 

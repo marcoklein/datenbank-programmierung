@@ -16,11 +16,13 @@
 - macOS: https://www.postgresql.org/download/macosx/
 - Alternativ das Archiv herunterladen: https://www.enterprisedb.com/download-postgresql-binaries
 - Standardeinstellungen beibehalten (user: _postgres_, port: _5432_)
+  - Passwort auf _postgres_ setzen, falls erforderlich
+  - Postgres läuft nach der Installation automatisch
 
 ## Java (OpenJDK) installieren
 
 - Check ob Java bereits installiert ist: `java --version´ im Terminal
-- Download vom OpenJDK 11 von https://jdk.java.net/java-se-ri/11
+- Download OpenJDK 11 von https://jdk.java.net/java-se-ri/11
 
 > `java --version` sollte die Version im Terminal ausgeben
 
@@ -52,7 +54,7 @@ Wählen Sie PostgreSQL
 
 ![](dbeaver_conn_settings.png)
 
-1. Geben Sie das Passwort ein, welches Sie bei der Installation von PostgreSQL angegeben haben
+1. Geben Sie das Passwort ein, welches Sie bei der Installation von PostgreSQL angegeben haben (Standart ist `postgres`)
 2. Testen Sie, ob eine Verbindung hergestellt werden kann
 3. Falls ja, beenden Sie mit `Finish`
 
