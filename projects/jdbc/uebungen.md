@@ -9,8 +9,8 @@ Nutzen Sie dafür die Anweisungen der [README.md](README.md).
 ## 1. Dateneingabe
 
 - Füge eine SQL Anweisung hinzu, welche zufällige Nummern in die Datenbank hinzufügt
-- Zuerst soll diese durch Java Code produziert werden
-- Dann soll die Beschreibung zufällig generiert werden
+- Diese sollen durch Java Code produziert werden
+- Generiere dann die Beschreibung einer Lieblingszahl zufällig
 
 ## 2. Integrationsbedingungen
 
@@ -34,3 +34,4 @@ Mit SQL-Injection kann bösartiger Code in ihre Datenbank gelangen und großen S
 - Entferne die `throws SQLException` Anweisungen
 - Behandle die Fehler durch einen `try ... catch` Block
 - Beachte das korrekte Schließen der verwendeten Ressourcen
+- Füge eine fehlerhafte SQL Anweisung hinzu, um einen der `try ... catch` Blöcke auszulösen

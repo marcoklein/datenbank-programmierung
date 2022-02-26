@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.lang.RuntimeException;
 import java.util.Properties;
 
 public class App {
@@ -12,6 +13,9 @@ public class App {
     public static final String SCHEMA_NAME = "favnum";
 
     public static void main(String[] args) throws SQLException {
+        if (args.length == 0) {
+            throw new RuntimeException("Please provide the database password as a command line argument.");
+        }
         System.out.println("Hello, World!");
         String url = String.format("jdbc:postgresql://localhost:5432/postgres?currentSchema=%s", SCHEMA_NAME);
         Properties props = new Properties();
@@ -49,8 +53,8 @@ public class App {
 
     public static void insertData(Connection conn) throws SQLException {
         // you can also use conn.createStatement() in conjunction with executeQuery()
-        // however, this is prone to SQL injection as the normal statement doesnt
-        // sanetize query params
+        // however, this is prone to SQL injection as the normal statement does not
+        // sanitize query params
         // therefore: always use a PreparedStatement if you have user input!
 
         final PreparedStatement stmt = conn

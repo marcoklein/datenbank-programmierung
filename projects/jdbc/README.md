@@ -22,6 +22,16 @@ For Linux/Mac the `;` should be a `:`.
 - `App`: Name of main file
 - `dbpassword`: Password of database connection (first argument)
 
+## Java in Path
+
+To use Java properly it has to be available in the environment variables.
+
+Run `java -version` to see if you have java properly installed.
+
+On Windows it should get automatically added. On Linux or MacOS you can also use `export PATH=/Applications/<you jdk folder>/Contents/Home/bin:$PATH` to add the path to the JDK into you environment.
+
+Follow the _entwicklungsumgebung.md_ guide to set up your local development setup.
+
 ## Folder Structure
 
 The workspace contains two folders by default, where:

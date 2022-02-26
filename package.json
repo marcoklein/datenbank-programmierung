@@ -1,0 +1,15 @@
+{
+  "name": "datenbank-programmierung",
+  "version": "1.0.0",
+  "description": "Database Engineering Lecture.",
+  "main": "scripts/generate-pdfs.js",
+  "repository": "git@github.com:marcoklein/datenbank-programmierung.git",
+  "author": "Marco Klein <marco.klein94@gmail.com>",
+  "type": "module",
+  "scripts": {
+    "generate:pdfs": "rm -r pdfs/*.pdf && node ./scripts/generate-pdfs.js"
+  },
+  "dependencies": {
+    "md-to-pdf": "^5.1.0"
+  }
+}

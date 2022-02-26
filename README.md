@@ -6,9 +6,13 @@ Unterstützendes Repository für die Vorlesung.
 
 ## Struktur
 
-```js
-/projects   // Code Projekte
-/vorlesung  // Material der Vorlesung
+```sh
+/projects   # Code Projekte
+/vorlesung  # Material der Vorlesung
+```
+
+```sh
+/scripts  # Scripts for managing the repository (like PDF generation)
 ```
 
 # About this repository
@@ -17,20 +21,18 @@ Subsidiary code repository for a database engineering lecture.
 
 ## Render PDFs
 
-You can use [md-to-pdf](https://www.npmjs.com/package/md-to-pdf) to render markdown as PDF documents.
-This assumes that you have Node and NPM installed.
+The `scripts` folder contains the `generate-pdfs.js` script that collects and renders all Markdown files into PDFs.
 
-```bash
-npx md-to-pdf ./path/to/markdown.md
+You need to install [NodeJS](https://nodejs.org/en/).
+
+Install dependencies
+
+```sh
+yarn install
 ```
 
-Render lecture material
+Render to PDF files
 
-```bash
-npx md-to-pdf ./vorlesung/1/ddl_dml.md
-npx md-to-pdf ./vorlesung/2/README.md
-npx md-to-pdf ./vorlesung/3/README.md
-npx md-to-pdf ./vorlesung/4/README.md
-npx md-to-pdf ./vorlesung/5/README.md
-npx md-to-pdf ./vorlesung/6/README.md
+```sh
+yarn generate:pdfs
 ```
