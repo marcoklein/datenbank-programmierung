@@ -63,6 +63,7 @@ GRANT ALL ON ALL TABLES IN SCHEMA company TO sales;
 Wie verändern sich die Kontostände?
 
 ```sql
+BEGIN;
 UPDATE konto
 SET kontostand = kontostand – 400
 WHERE kontonr = 4;
@@ -70,6 +71,7 @@ UPDATE konto
 SET kontostand = kontostand + 400
 WHERE kontonr = 7;
 ROLLBACK;
+UPDATE konto
 SET kontostand = kontostand + 400
 WHERE kontonr = 7;
 COMMIT;
